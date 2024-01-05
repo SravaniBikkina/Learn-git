@@ -1,0 +1,135 @@
+                                GIT
+
+What is GIT?
+Why GIT
+How to use GIT?
+
+Git is a distributed version control system
+What is Version control system? 
+Version control system is a software application or tool which tracks the changes in a file or set of files. It can easily track the new changes and can revert into previous version if required.  GIT is used for source code management during software development.
+
+Whenever we write a software application, there is a requirement to track down our source code so that we review new changes and also revert to any previous version if required.
+Types of version control system: 
+Centralized version control system: 
+There is only one central copy of the entire project residing over a remote server. We can access only required file like those we want to change, but we never have the entire project locally. Here the entire team relies on the central server.
+
+
+Distributed version control system: 
+In the Distributed version control system each developer has a full copy of entire project in local repo, including the full history of the code commit. Here we never rely on the central server. 
+
+
+GIT is a de-centralised version control system. Which means there is no central copy of entire project, it contains entire project in local machine. It gives advantage that developer can work independently on local repo without connecting to central server. GIT is an open source tool developed by linus torvalds in 2005. Source code hosting platforms are GIThub, GITlab, Bitbucket. 
+
+Stages of GIT: 
+Working directory
+Staging area
+Repository
+
+
+How does GIT work?
+GIT was developed as a command line tool, it provides a simple command line interface by which we can control the system. To work with this we need to understand its workflow and its commands. 
+
+How to install GIT
+For Debian/Ubuntu :
+1. sudo apt-get update
+2. sudo apt-get upgrade
+3. sudo apt-get install git
+For Redhat Based:
+1. sudo yum upgrade
+2. sudo yum install git
+For Mac OS:
+1. brew install git
+For Mac Installer:
+https://git-scm.com/download/mac
+
+Let's start working with GIT: (working directory to local repository)
+Start with Creating the directory
+ mkdir “directory name”
+Replace “directory name” with the name of your directory
+Move to home directory to the directory you want to work on(working directory)
+cd “directory name”
+Start creating or initialize empty GIT repository  
+ git init
+Next we need to track the untracked files
+git add “file name”
+Replace “file name” with files which are held in directory. We can also add entire directory which we want to track. Tracking the files means files are saved in staging area 
+To check status of files 
+git status
+To save files from staging area or to local git repository
+Git commit -m “initial commit message”
+“-m” flag in the git commit command is used to include a commit message directly from the command line. 
+
+
+Local repository to remote repository: 
+
+To Push the file from local Repository to Remote Repository we have a tool like GitHub, GitLab, Bitbucket:, create a Repository and copy url of the Repository in any tool
+Command:- 
+git remote add origin <repository-url>
+Command to push the file from local to remote repository
+git push origin master
+
+
+Secure shell cryptography (SSH) key
+ To create a authorization for pushing from local to remote repository
+To generate new SSH key
+Command: ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+Add SSH key to SSH agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+Copy SSH key to clipboard
+         cat ~/.ssh/id_rsa.pub
+Add SSH Key to Your Git Hosting Provider
+Test SSH key connection
+          ssh -T git@github.com
+
+Git local commands
+It shows the difference of content or commits held in-files 
+Command is: “Git diff”
+To see single file change 
+Command is: Git diff “filename”
+In order to add multiple files at a time 
+command is: git add *. txt 
+To see the changes in working directory after staging
+Command: git diff -- staged
+To see all the commit history (last commit will be shown first). 
+         Command: git log
+To see the difference of particular commit
+Command: git show “commit id”
+
+Git Remote commands: 
+To clone entire project in local repository and to initialize local git repo
+Command: git clone: Git clone (remote url) 
+To pull all changes from remote repo to local repo 
+Command: git Pull 
+To see changes in commits in remote repo without merging
+Command: git fetch origin
+To merge new changes to local file
+Command: git checkout
+
+Git undoing commands
+
+Git reset:  to unstage changes made in staging area, can also be used to undo a commit 
+Git reset HEAD~1: To move one commit back
+Git Reset willn't remove data, just it will move to previous commit. All changes are held in working directory. 
+To reset Particular id
+       Git reset "commit id"
+Git revert 
+Instead of deleting commits in commit history, a revent will create a new commit that will inverses changes Specified
+Command: “Git revert head”
+     Git Remove and Ignore:
+Git rm - To Remove file from local git repository
+Git rm - - cached “file name” - to remove file from staging area
+Git rm - -f “file name” - to remove file forcefully
+To ignore file
+.git ignore
+
+
+
+
+
+
+
+
+
+
+
